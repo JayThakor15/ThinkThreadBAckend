@@ -5,9 +5,10 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 
-// Import routes (add .js extension in ES6)
+// Import routes
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use("/uploads", express.static("uploads"));
 // Route middleware
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/posts", postRoutes);
 
 // Test route
 app.get("/", (req, res) => {
