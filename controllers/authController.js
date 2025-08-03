@@ -6,7 +6,6 @@ import bcrypt from "bcryptjs";
 export const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    console.log("Signup password:", password); // In signup
 
     // Check if all fields are provided
     if (!name || !email || !password) {
@@ -64,11 +63,9 @@ export const login = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Invalid credentials" });
     }
-    console.log("User found:", user);
 
     // Compare passwords
     const isMatch = await bcrypt.compare(password, user.password);
-    console.log("Password match:", isMatch); // Add this
     if (!isMatch) {
       return res
         .status(400)
