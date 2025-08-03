@@ -14,7 +14,7 @@ export const createPost = async (req, res) => {
       user: req.user.id,
       content: content.trim(),
       image: req.file
-        ? `http://localhost:5000/uploads/${req.file.filename}`
+        ? `https://thinkthreadbackend.onrender.com/uploads/${req.file.filename}`
         : "",
     });
 

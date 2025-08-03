@@ -15,7 +15,6 @@ export const getProfile = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    console.log(user);
 
     if (user) {
       user.name = req.body.name || user.name;
@@ -32,8 +31,6 @@ export const updateProfile = async (req, res) => {
       }
 
       const updatedUser = await user.save();
-      console.log("updated user", updatedUser);
-
       res.status(201).json({
         _id: updatedUser._id,
         name: updatedUser.name,
